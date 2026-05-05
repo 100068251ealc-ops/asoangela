@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Angela y Asociados | Consultoría Legal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --vino:        #5C1A2E;
+    --vino-dark:   #3D0F1E;
+    --vino-deep:   #280A14;
+    --vino-light:  #7A2440;
+    --gold:        #C9A84C;
+    --gold-light:  #E2C87A;
+    --gold-pale:   #F8F1E4;
+    --white:       #FAF8F5;
+    --gray:        #9A8F90;
+    --text:        #2A1520;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Jost',sans-serif; background:var(--white); color:var(--text); overflow-x:hidden; }
+
+  /* HERO FOTO FONDO */
+  .hero-photo { position:absolute; inset:0; z-index:0; background-image:url("ftjuridicapresentacion.jpg"); background-size:cover; background-position:center; filter:blur(3px) brightness(.32) saturate(.65); transform:scale(1.05); }
+  /* LOGO NAV IMG */
+  .nav-logo-img { width:44px; height:44px; border-radius:2px; border:1.5px solid var(--gold); object-fit:cover; display:block; }
+  /* SOBRE FOTO */
+  .sobre-foto { width:100%; height:100%; object-fit:cover; position:absolute; inset:0; z-index:1; opacity:.88; }
+  /* TESTIMONIAL AVATAR FOTO */
+  .test-avatar { padding:0; overflow:hidden; background:transparent; border:none; }
+  .test-avatar img { width:40px; height:40px; border-radius:50%; object-fit:cover; display:block; border:2px solid rgba(201,168,76,.4); }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.2rem 6vw;
+    background:rgba(40,10,20,0.97);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,168,76,.22);
+    transition:border-color .3s;
+  }
+  .nav-logo { display:flex; align-items:center; gap:.9rem; }
+  .monogram {
+    width:44px; height:44px; border:1.5px solid var(--gold); border-radius:2px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--gold);
+  }
+  .nav-name { font-family:'Playfair Display',serif; font-size:.95rem; font-weight:600; color:var(--white); letter-spacing:.08em; text-transform:uppercase; line-height:1.2; }
+  .nav-name span { display:block; font-size:.65rem; font-weight:300; color:var(--gold); letter-spacing:.2em; font-family:'Jost',sans-serif; }
+  .nav-links { display:flex; gap:2.2rem; list-style:none; }
+  .nav-links a { font-size:.78rem; letter-spacing:.15em; text-transform:uppercase; color:rgba(250,248,245,.6); text-decoration:none; transition:color .25s; position:relative; }
+  .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .3s; }
+  .nav-links a:hover { color:var(--gold); }
+  .nav-links a:hover::after { transform:scaleX(1); }
+  .nav-cta { padding:.55rem 1.6rem; border:1px solid var(--gold); color:var(--gold)!important; font-size:.75rem!important; letter-spacing:.15em; transition:background .25s,color .25s!important; }
+  .nav-cta:hover { background:var(--gold)!important; color:var(--vino-deep)!important; }
+  .nav-cta::after { display:none!important; }
+
+  /* HERO */
+  #inicio { min-height:100vh; background:var(--vino-deep); display:flex; align-items:center; position:relative; overflow:hidden; padding:0 6vw; }
+  .hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,168,76,.07) 0%, transparent 70%), radial-gradient(ellipse 50% 70% at 10% 90%, rgba(92,26,46,.6) 0%, transparent 60%); }
+  .hero-grid { position:absolute; inset:0; background-image: linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px); background-size:60px 60px; }
+  .hero-deco { position:absolute; right:5vw; top:50%; transform:translateY(-50%); width:min(420px,40vw); height:min(420px,40vw); border:1px solid rgba(201,168,76,.13); border-radius:50%; }
+  .hero-deco::before { content:''; position:absolute; inset:30px; border:1px solid rgba(201,168,76,.08); border-radius:50%; }
+  .hero-deco::after { content:''; position:absolute; inset:70px; border:1px solid rgba(201,168,76,.05); border-radius:50%; }
+  .hero-content { position:relative; z-index:2; max-width:680px; animation:fadeUp .9s ease both; }
+  .hero-tag { display:inline-flex; align-items:center; gap:.6rem; font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem; }
+  .hero-tag::before { content:''; width:32px; height:1px; background:var(--gold); }
+  h1 { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:400; line-height:1.1; color:var(--white); margin-bottom:1rem; }
+  h1 em { font-style:italic; color:var(--gold-light); display:block; }
+  .hero-slogan { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-style:italic; color:rgba(250,248,245,.55); margin-bottom:2.5rem; border-left:2px solid var(--gold); padding-left:1.2rem; }
+  .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn-primary { padding:.9rem 2.4rem; background:var(--gold); color:var(--vino-deep); font-size:.78rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:background .25s,transform .2s; }
+  .btn-primary:hover { background:var(--gold-light); transform:translateY(-1px); }
+  .btn-secondary { padding:.9rem 2.4rem; border:1px solid rgba(250,248,245,.22); color:rgba(250,248,245,.75); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; transition:border-color .25s,color .25s; }
+  .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+
+  /* GENERAL */
+  section { padding:6rem 6vw; }
+  .section-label { display:flex; align-items:center; gap:.8rem; font-size:.68rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.2rem; }
+  .section-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+  h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); font-weight:400; line-height:1.2; color:var(--vino-dark); margin-bottom:1.5rem; }
+  .gold-line { width:50px; height:2px; background:var(--gold); margin-bottom:2rem; }
+
+  /* SOBRE */
+  #sobre { background:var(--white); display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
+  .sobre-img { position:relative; }
+  .sobre-img-inner { width:100%; aspect-ratio:4/5; background:linear-gradient(145deg, var(--vino-dark) 0%, var(--vino) 100%); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  .sobre-img-inner::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 70%, rgba(201,168,76,.18) 0%, transparent 60%); }
+  .sobre-monogram-big { font-family:'Playfair Display',serif; font-size:8rem; font-weight:700; color:rgba(201,168,76,.12); letter-spacing:-.02em; position:absolute; }
+  .sobre-badge { position:absolute; bottom:-1.5rem; right:-1.5rem; width:120px; height:120px; background:var(--gold); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+  .sobre-badge strong { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--vino-deep); line-height:1; }
+  .sobre-badge span { font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--vino-deep); line-height:1.3; margin-top:.2rem; }
+  .sobre-deco-line { position:absolute; top:1.5rem; left:-1.5rem; width:3px; height:80px; background:var(--gold); }
+  .sobre-text p { font-family:'Cormorant Garamond',serif; font-size:1.15rem; line-height:1.8; color:#554050; margin-bottom:1.2rem; }
+  .sobre-firma { display:flex; align-items:center; gap:1rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid rgba(201,168,76,.3); }
+  .firma-avatar { width:52px; height:52px; background:var(--vino); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; color:var(--gold); }
+  .firma-info strong { display:block; font-family:'Playfair Display',serif; font-size:.95rem; color:var(--vino-dark); }
+  .firma-info span { font-size:.72rem; letter-spacing:.1em; color:var(--gray); text-transform:uppercase; }
+
+  /* ÁREAS */
+  #areas { background:var(--vino-deep); position:relative; overflow:hidden; }
+  #areas h2 { color:var(--white); }
+  #areas .section-label { color:var(--gold-light); }
+  #areas .section-label::before { background:var(--gold-light); }
+  .areas-intro { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:rgba(250,248,245,.5); max-width:540px; margin-bottom:3.5rem; line-height:1.7; }
+  .areas-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1px; background:rgba(201,168,76,.15); }
+  .area-card { background:var(--vino-deep); padding:2.5rem 2rem; position:relative; overflow:hidden; transition:background .3s; cursor:default; }
+  .area-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transform-origin:left; transition:transform .4s; }
+  .area-card:hover { background:var(--vino-dark); }
+  .area-card:hover::before { transform:scaleX(1); }
+  .area-icon { font-size:2rem; margin-bottom:1.2rem; display:block; }
+  .area-card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:600; color:var(--white); margin-bottom:.6rem; }
+  .area-card p { font-size:.82rem; line-height:1.65; color:rgba(250,248,245,.45); }
+  .area-num { position:absolute; top:1.5rem; right:1.5rem; font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:700; color:rgba(201,168,76,.08); line-height:1; }
+
+  /* POR QUÉ */
+  #porque { background:var(--gold-pale); display:grid; grid-template-columns:1fr 1.4fr; gap:6vw; align-items:start; }
+  .porque-sticky { position:sticky; top:7rem; }
+  .porque-list { display:flex; flex-direction:column; }
+  .porque-item { display:flex; gap:1.5rem; align-items:flex-start; padding:2rem 0; border-bottom:1px solid rgba(92,26,46,.15); transition:all .3s; }
+  .porque-item:first-child { border-top:1px solid rgba(92,26,46,.15); }
+  .porque-num { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; color:var(--gold); line-height:1; min-width:2.5rem; }
+  .porque-item h3 { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:600; color:var(--vino-dark); margin-bottom:.4rem; }
+  .porque-item p { font-size:.85rem; line-height:1.7; color:#665060; }
+
+  /* TESTIMONIOS */
+  #testimonios { background:var(--vino); overflow:hidden; position:relative; }
+  #testimonios::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, rgba(201,168,76,.4), transparent); }
+  #testimonios h2 { color:var(--white); }
+  #testimonios .section-label { color:var(--gold-light); }
+  #testimonios .section-label::before { background:var(--gold-light); }
+  #testimonios .gold-line { background:var(--gold); }
+  .test-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:1.5rem; margin-top:3rem; }
+  .test-card { background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.18); padding:2rem 1.8rem; position:relative; transition:background .3s,transform .3s; }
+  .test-card:hover { background:rgba(255,255,255,.09); transform:translateY(-3px); }
+  .test-quote { font-size:3rem; line-height:.8; font-family:'Playfair Display',serif; font-weight:700; color:var(--gold); opacity:.4; margin-bottom:.5rem; }
+  .test-text { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-style:italic; line-height:1.75; color:rgba(250,248,245,.8); margin-bottom:1.5rem; }
+  .test-stars { color:var(--gold); font-size:.85rem; margin-bottom:1rem; letter-spacing:.1em; }
+  .test-author { display:flex; align-items:center; gap:.8rem; border-top:1px solid rgba(201,168,76,.2); padding-top:1rem; }
+  .test-avatar { width:40px; height:40px; border-radius:50%; background:rgba(201,168,76,.15); border:1px solid rgba(201,168,76,.3); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:.9rem; color:var(--gold); }
+  .test-name { font-size:.82rem; font-weight:500; color:var(--white); }
+  .test-role { font-size:.7rem; color:rgba(250,248,245,.4); letter-spacing:.08em; }
+  .test-area { position:absolute; top:1.5rem; right:1.5rem; font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); opacity:.6; }
+
+  /* CONTACTO */
+  #contacto { background:var(--vino-deep); display:grid; grid-template-columns:1fr 1.2fr; gap:6vw; align-items:start; }
+  #contacto h2 { color:var(--white); }
+  #contacto .section-label { color:var(--gold); }
+  #contacto .gold-line { background:var(--gold); }
+  .contacto-desc { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:rgba(250,248,245,.5); line-height:1.8; margin-bottom:2.5rem; }
+  .contacto-info { display:flex; flex-direction:column; gap:1.2rem; }
+  .contacto-item { display:flex; align-items:center; gap:1rem; }
+  .c-icon { width:44px; height:44px; min-width:44px; border:1px solid rgba(201,168,76,.3); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+  .c-text { font-size:.85rem; color:rgba(250,248,245,.7); line-height:1.5; }
+  .c-text strong { display:block; color:var(--gold); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; margin-bottom:.15rem; }
+  .contacto-form { display:flex; flex-direction:column; gap:1rem; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .field { display:flex; flex-direction:column; gap:.4rem; }
+  .field label { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(250,248,245,.35); }
+  .field input,.field textarea,.field select { background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.2); padding:.85rem 1rem; color:var(--white); font-family:'Jost',sans-serif; font-size:.88rem; outline:none; transition:border-color .25s; resize:none; appearance:none; }
+  .field input::placeholder,.field textarea::placeholder { color:rgba(250,248,245,.2); }
+  .field input:focus,.field textarea:focus,.field select:focus { border-color:var(--gold); background:rgba(201,168,76,.06); }
+  .field select option { background:var(--vino-deep); color:var(--white); }
+  .form-submit { padding:1rem 2.5rem; background:var(--gold); color:var(--vino-deep); border:none; cursor:pointer; font-family:'Jost',sans-serif; font-size:.78rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; transition:background .25s,transform .2s; align-self:flex-start; }
+  .form-submit:hover { background:var(--gold-light); transform:translateY(-1px); }
+
+  /* FOOTER */
+  footer { background:#180610; padding:3rem 6vw; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem; border-top:1px solid rgba(201,168,76,.15); }
+  .footer-brand { font-family:'Playfair Display',serif; font-size:.9rem; color:var(--white); }
+  .footer-brand span { display:block; font-family:'Jost',sans-serif; font-size:.65rem; letter-spacing:.2em; color:var(--gray); text-transform:uppercase; margin-top:.2rem; }
+  .footer-slogan { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.95rem; color:var(--gold); opacity:.8; }
+  .footer-copy { font-size:.68rem; color:var(--gray); letter-spacing:.05em; }
+
+  /* WHATSAPP */
+  .wa-float { position:fixed; bottom:2rem; right:2rem; z-index:999; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.45); text-decoration:none; animation:waPulse 2.5s ease-in-out infinite; transition:transform .2s,box-shadow .2s; }
+  .wa-float:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.6); animation:none; }
+  .wa-float svg { width:30px; height:30px; fill:white; }
+  .wa-tooltip { position:absolute; right:70px; top:50%; transform:translateY(-50%); background:rgba(20,5,12,.92); color:var(--white); font-size:.72rem; letter-spacing:.06em; white-space:nowrap; padding:.45rem 1rem; border-radius:2px; border:1px solid rgba(201,168,76,.25); opacity:0; pointer-events:none; transition:opacity .25s; }
+  .wa-float:hover .wa-tooltip { opacity:1; }
+
+  @keyframes waPulse {
+    0%,100% { box-shadow:0 4px 20px rgba(37,211,102,.45); }
+    50% { box-shadow:0 4px 30px rgba(37,211,102,.75), 0 0 0 10px rgba(37,211,102,.1); }
+  }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease,transform .7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media (max-width:768px) {
+    nav { padding:1rem 5vw; }
+    .nav-links { display:none; }
+    h1 { font-size:2.4rem; }
+    #sobre,#porque,#contacto { grid-template-columns:1fr; }
+    .sobre-badge { bottom:-1rem; right:-1rem; width:90px; height:90px; }
+    .sobre-badge strong { font-size:1.5rem; }
+    .areas-grid,.test-grid { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    footer { flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="milogo.png" alt="Angela y Asociados Logo" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+    <div class="monogram" style="display:none">AC</div>
+    <div class="nav-name">Angela y Asociados<span>Consultoría Legal</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre">Nosotros</a></li>
+    <li><a href="#areas">Áreas</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#contacto" class="nav-cta">Consulta</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-photo"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-deco"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Despacho Jurídico · La Vega, RD</div>
+    <h1>Tu defensa legal,<br><em>en manos expertas.</em></h1>
+    <p class="hero-slogan">"Justicia clara, defensa firme."</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primary">Solicitar Consulta</a>
+      <a href="#areas" class="btn-secondary">Nuestras Áreas</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-img reveal">
+    <div class="sobre-deco-line"></div>
+    <div class="sobre-img-inner">
+      <img src="logosobrenosotros.jpg" alt="Angela y Asociados" class="sobre-foto" onerror="this.style.display='none'"/>
+      <span class="sobre-monogram-big" style="z-index:2">AC</span>
+    </div>
+    <div class="sobre-badge"><strong>+10</strong><span>Años de experiencia</span></div>
+  </div>
+  <div class="sobre-text reveal">
+    <div class="section-label">Sobre nosotros</div>
+    <h2>Un despacho que pone a las personas primero</h2>
+    <div class="gold-line"></div>
+    <p>En <strong>Angela y Asociados</strong> entendemos que detrás de cada caso hay una persona con necesidades reales. Por eso ofrecemos asesoría jurídica integral con un enfoque humano, transparente y orientado a resultados.</p>
+    <p>La Lic. Angela Francisca Cruz fundó este despacho con una convicción clara: que toda familia e individuo merece acceso a una defensa legal de calidad, sin importar la complejidad del caso o el momento en que se encuentra.</p>
+    <p>Con más de una década de ejercicio en la República Dominicana, hemos construido una reputación sólida basada en confianza, cercanía y compromiso real con cada cliente que nos confía su situación.</p>
+    <div class="sobre-firma">
+      <div class="firma-avatar">AFC</div>
+      <div class="firma-info">
+        <strong>Lic. Angela Francisca Cruz</strong>
+        <span>Fundadora · Abogada & Consultora Legal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS -->
+<section id="areas">
+  <div class="section-label">Áreas de Práctica</div>
+  <h2>Soluciones legales en cada área del derecho</h2>
+  <p class="areas-intro">Representamos a nuestros clientes con experiencia y dedicación en las principales ramas del sistema jurídico dominicano.</p>
+  <div class="areas-grid reveal">
+    <div class="area-card"><span class="area-num">01</span><span class="area-icon">⚖️</span><h3>Derecho Civil</h3><p>Contratos, obligaciones, daños y perjuicios, propiedad inmobiliaria y procesos sucesorales.</p></div>
+    <div class="area-card"><span class="area-num">02</span><span class="area-icon">👨‍👩‍👧</span><h3>Derecho de Familia</h3><p>Divorcio, custodia, reconocimiento de hijos, pensiones alimentarias y adopciones.</p></div>
+    <div class="area-card"><span class="area-num">03</span><span class="area-icon">🏛️</span><h3>Derecho Penal</h3><p>Defensa penal, representación en audiencias, recursos de apelación y medidas de coerción.</p></div>
+    <div class="area-card"><span class="area-num">04</span><span class="area-icon">💼</span><h3>Derecho Laboral</h3><p>Despidos injustificados, liquidación de prestaciones, contratos y conflictos laborales.</p></div>
+    <div class="area-card"><span class="area-num">05</span><span class="area-icon">🏢</span><h3>Derecho Comercial</h3><p>Constitución de empresas, contratos mercantiles y asesoría corporativa para negocios.</p></div>
+    <div class="area-card"><span class="area-num">06</span><span class="area-icon">📋</span><h3>Asesoría Legal General</h3><p>Orientación jurídica, revisión de documentos, notaría y consultas legales preventivas.</p></div>
+  </div>
+</section>
+
+<!-- POR QUÉ -->
+<section id="porque">
+  <div class="porque-sticky reveal">
+    <div class="section-label">¿Por qué elegirnos?</div>
+    <h2>Lo que nos hace diferentes</h2>
+    <div class="gold-line"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#665060;line-height:1.8;">No somos solo abogados, somos aliados. Cada caso que tomamos lo asumimos con la misma dedicación que si fuera el nuestro propio.</p>
+  </div>
+  <div class="porque-list reveal">
+    <div class="porque-item"><div class="porque-num">01</div><div><h3>Atención 100% personalizada</h3><p>Cada caso es único y lo tratamos como tal. Nos tomamos el tiempo de escucharte, entender tu situación y diseñar una estrategia legal adaptada exclusivamente a ti.</p></div></div>
+    <div class="porque-item"><div class="porque-num">02</div><div><h3>Comunicación clara y constante</h3><p>Sin tecnicismos confusos, sin silencios. Te mantenemos informado en cada etapa del proceso, explicando con claridad qué ocurre y qué sigue en tu caso.</p></div></div>
+    <div class="porque-item"><div class="porque-num">03</div><div><h3>Experiencia comprobada</h3><p>Más de una década ejerciendo en múltiples ramas del derecho dominicano nos da la capacidad de anticipar obstáculos y encontrar soluciones donde otros no las ven.</p></div></div>
+    <div class="porque-item"><div class="porque-num">04</div><div><h3>Compromiso real con resultados</h3><p>No solo representamos, acompañamos. Cada decisión que tomamos está orientada a obtener el mejor resultado posible. Tu victoria es, genuinamente, la nuestra.</p></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios">
+  <div class="section-label reveal">Testimonios</div>
+  <h2 class="reveal">Lo que dicen nuestros clientes</h2>
+  <div class="gold-line reveal"></div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-area">Derecho de Familia</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">La Lic. Angela me acompañó durante todo mi proceso de divorcio con una paciencia y profesionalismo que no esperaba. Me explicó cada paso sin que yo tuviera que preguntar dos veces. La recomiendo sin dudarlo.</p>
+      <div class="test-stars">★★★★★</div>
+      <div class="test-author">
+        <div class="test-avatar"><img src="fttestimonios1.jpg" alt="María Rodríguez" onerror="this.outerHTML='MR'"/></div>
+        <div><div class="test-name">María Rodríguez</div><div class="test-role">La Vega, RD</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-area">Derecho Laboral</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">Me despidieron de forma injustificada después de 8 años en la empresa. Angela y su equipo lograron que se me reconocieran todas mis prestaciones. No creí que fuera posible, pero lo hicieron realidad.</p>
+      <div class="test-stars">★★★★★</div>
+      <div class="test-author">
+        <div class="test-avatar"><img src="fttestimonios2.jpg" alt="Juan Pérez" onerror="this.outerHTML='JP'"/></div>
+        <div><div class="test-name">Juan Pérez</div><div class="test-role">Santiago, RD</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-area">Derecho Penal</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">Mi hijo fue imputado injustamente y no sabíamos a quién acudir. La Licenciada Cruz tomó el caso con seriedad desde el primer momento y logró que se desestimaran los cargos. Le estaremos eternamente agradecidos.</p>
+      <div class="test-stars">★★★★★</div>
+      <div class="test-author">
+        <div class="test-avatar"><img src="fttestimonios3.jpg" alt="Carmen Santos" onerror="this.outerHTML='CS'"/></div>
+        <div><div class="test-name">Carmen Santos</div><div class="test-role">Moca, RD</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-area">Derecho Civil</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">Tenía un problema de títulos con un terreno heredado de mi madre que llevaba años sin resolverse. En menos de cuatro meses, Angela lo solucionó. Una abogada de verdad, con conocimiento y dedicación.</p>
+      <div class="test-stars">★★★★★</div>
+      <div class="test-author">
+        <div class="test-avatar"><img src="fttestimonios4.jpg" alt="Rafael Méndez" onerror="this.outerHTML='RM'"/></div>
+        <div><div class="test-name">Rafael Méndez</div><div class="test-role">La Vega, RD</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-area">Asesoría General</div>
+      <div class="test-quote">"</div>
+      <p class="test-text">Antes de firmar un contrato de arrendamiento fui a consultar con ella y descubrí que tenía cláusulas abusivas. Me ahorró un problema enorme. Ahora la consulto para todo. Es mi abogada de confianza.</p>
+      <div class="test-stars">★★★★★</div>
+      <div class="test-author">
+        <div class="test-avatar"><img src="fttestimonios5.jpg" alt="Luisa García" onerror="this.outerHTML='LG'"/></div>
+        <div><div class="test-name">Luisa García</div><div class="test-role">Jarabacoa, RD</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="reveal">
+    <div class="section-label">Contacto</div>
+    <h2>Hablemos de tu caso</h2>
+    <div class="gold-line"></div>
+    <p class="contacto-desc">La primera consulta es el primer paso hacia la solución. No esperes más, contáctanos hoy y recibe orientación legal profesional y cercana.</p>
+    <div class="contacto-info">
+      <div class="contacto-item"><div class="c-icon">📞</div><div class="c-text"><strong>Teléfono</strong>(809) 427-8287</div></div>
+      <div class="contacto-item"><div class="c-icon">📧</div><div class="c-text"><strong>Correo</strong>contacto@angelayasociados.com</div></div>
+      <div class="contacto-item"><div class="c-icon">📍</div><div class="c-text"><strong>Ubicación</strong>La Vega, República Dominicana</div></div>
+      <div class="contacto-item"><div class="c-icon">🕐</div><div class="c-text"><strong>Disponibilidad</strong>24 horas · 7 días a la semana</div></div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="contacto-form">
+      <div class="form-row">
+        <div class="field"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"/></div>
+        <div class="field"><label>Teléfono</label><input type="tel" placeholder="(809) 000-0000"/></div>
+      </div>
+      <div class="field"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com"/></div>
+      <div class="field">
+        <label>Área legal</label>
+        <select>
+          <option value="" disabled selected>Selecciona un área</option>
+          <option>Derecho Civil</option><option>Derecho de Familia</option>
+          <option>Derecho Penal</option><option>Derecho Laboral</option>
+          <option>Derecho Comercial</option><option>Asesoría General</option>
+        </select>
+      </div>
+      <div class="field"><label>Describe tu situación</label><textarea rows="5" placeholder="Cuéntanos brevemente sobre tu caso..."></textarea></div>
+      <button class="form-submit" id="submitBtn" onclick="enviarFormulario(event)">Enviar Consulta →</button>
+      <div id="form-msg" style="display:none;margin-top:1rem;padding:1rem 1.2rem;font-size:.85rem;letter-spacing:.04em;border-left:3px solid var(--gold);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Angela y Asociados<span>Consultoría Legal · La Vega, RD</span></div>
+  <div class="footer-slogan">"Justicia clara, defensa firme."</div>
+  <div class="footer-copy">© 2025 Angela y Asociados. Todos los derechos reservados.</div>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-float" href="https://wa.me/18094278287?text=Saludos%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20ustedes" target="_blank" rel="noopener">
+  <span class="wa-tooltip">💬 Escríbenos por WhatsApp</span>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.49 2.031 7.8L0 32l8.418-2.004A15.934 15.934 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.07 22.368c-.337.946-1.96 1.807-2.683 1.922-.687.11-1.552.156-2.505-.158-.576-.193-1.316-.45-2.263-.882-3.977-1.72-6.572-5.726-6.772-5.993-.2-.267-1.629-2.168-1.629-4.135 0-1.967 1.033-2.937 1.399-3.335.366-.398.8-.497 1.066-.497.267 0 .534.003.768.012.246.01.577-.093.903.69.337.8 1.147 2.768 1.247 2.967.1.2.166.434.033.7-.133.267-.2.433-.4.667-.2.233-.42.52-.6.7-.2.2-.408.415-.176.815.233.4 1.033 1.7 2.216 2.753 1.52 1.356 2.803 1.775 3.203 1.975.4.2.633.167.867-.1.233-.267 1-.967 1.267-1.3.267-.333.533-.267.9-.133.366.133 2.333 1.1 2.733 1.3.4.2.667.3.767.467.1.166.1.966-.237 1.913z"/>
+  </svg>
+</a>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.borderBottomColor =
+      window.scrollY > 60 ? 'rgba(201,168,76,.38)' : 'rgba(201,168,76,.22)';
+  });
+
+  // Envío de formulario vía Formspree → correo esmayansonpc@gmail.com
+  async function enviarFormulario(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('form-msg');
+    const fields = document.querySelectorAll('.contacto-form input, .contacto-form textarea, .contacto-form select');
+
+    // Validación básica
+    const nombre   = fields[0].value.trim();
+    const telefono = fields[1].value.trim();
+    const correo   = fields[2].value.trim();
+    const area     = fields[3].value;
+    const detalle  = fields[4].value.trim();
+
+    if (!nombre || !correo || !area || !detalle) {
+      msg.style.display = 'block';
+      msg.style.color = '#E2C87A';
+      msg.style.borderLeftColor = '#E2C87A';
+      msg.textContent = '⚠️ Por favor completa todos los campos obligatorios.';
+      return;
+    }
+
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xjglryll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          nombre, telefono, correo, area,
+          mensaje: detalle,
+          _subject: `Nueva consulta legal – ${area} | Angela y Asociados`,
+          _replyto: correo
+        })
+      });
+
+      if (res.ok) {
+        msg.style.display = 'block';
+        msg.style.color = '#A8E6CF';
+        msg.style.borderLeftColor = 'var(--gold)';
+        msg.innerHTML = '✅ <strong>¡Mensaje enviado con éxito!</strong><br>La Lic. Angela Cruz se pondrá en contacto contigo a la brevedad.';
+        fields.forEach(f => f.value = '');
+        btn.textContent = '¡Enviado!';
+      } else {
+        throw new Error('Error en el servidor');
+      }
+    } catch (err) {
+      msg.style.display = 'block';
+      msg.style.color = '#FFAAAA';
+      msg.style.borderLeftColor = '#FFAAAA';
+      msg.innerHTML = '❌ No se pudo enviar el mensaje. Por favor escríbenos directamente a <strong>contacto@angelayasociados.com</strong> o por WhatsApp.';
+      btn.textContent = 'Enviar Consulta →';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
+  }
+</script>
+
+<!-- ████████ JADE IA — CHATBASE WIDGET ████████ -->
+<style>
+  /* BOTÓN JADE IA */
+  .jade-btn {
+    position:fixed; bottom:10rem; right:2rem; z-index:998;
+    width:58px; height:58px; border-radius:50%;
+    background:linear-gradient(135deg, #0D3B2E, #0A5C45);
+    border:2px solid #2ECC8A;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    box-shadow:0 4px 20px rgba(46,204,138,.35);
+    transition:transform .2s, box-shadow .2s;
+    animation:jadePulse 3s ease-in-out infinite;
+  }
+  .jade-btn:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(46,204,138,.6); animation:none; }
+  .jade-btn-avatar { width:42px; height:42px; border-radius:50%; object-fit:cover; display:block; }
+  .jade-badge {
+    position:absolute; top:-4px; right:-4px;
+    width:18px; height:18px; border-radius:50%;
+    background:#2ECC8A; color:#0D3B2E;
+    font-size:.58rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .jade-tooltip {
+    position:absolute; right:70px; top:50%; transform:translateY(-50%);
+    background:rgba(13,59,46,.95); color:#E0FFF4;
+    font-family:'Jost',sans-serif; font-size:.72rem; white-space:nowrap;
+    padding:.45rem 1rem; border-radius:2px;
+    border:1px solid rgba(46,204,138,.3);
+    opacity:0; pointer-events:none; transition:opacity .25s;
+  }
+  .jade-btn:hover .jade-tooltip { opacity:1; }
+  @keyframes jadePulse {
+    0%,100% { box-shadow:0 4px 20px rgba(46,204,138,.35); }
+    50%      { box-shadow:0 4px 30px rgba(46,204,138,.6), 0 0 0 10px rgba(46,204,138,.08); }
+  }
+
+  /* VENTANA JADE */
+  .jade-window {
+    position:fixed; bottom:15rem; right:2rem; z-index:997;
+    width:380px; height:560px;
+    background:#0A1F18;
+    border:1px solid rgba(46,204,138,.3);
+    border-radius:4px;
+    display:flex; flex-direction:column;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+    transform:scale(.92) translateY(20px);
+    opacity:0; pointer-events:none;
+    transition:all .3s cubic-bezier(.34,1.56,.64,1);
+    font-family:'Jost',sans-serif;
+    overflow:hidden;
+  }
+  .jade-window.open { transform:scale(1) translateY(0); opacity:1; pointer-events:all; }
+
+  /* HEADER JADE */
+  .jade-header {
+    display:flex; align-items:center; gap:.8rem;
+    padding:1rem 1.2rem; flex-shrink:0;
+    background:linear-gradient(135deg, #0D3B2E, #072518);
+    border-bottom:1px solid rgba(46,204,138,.2);
+  }
+  .jade-avatar-header {
+    width:40px; height:40px; border-radius:50%;
+    background:linear-gradient(135deg,#0A5C45,#2ECC8A);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; flex-shrink:0;
+    border:1.5px solid rgba(46,204,138,.5);
+    overflow:hidden;
+  }
+  .jade-avatar-header img { width:40px; height:40px; border-radius:50%; object-fit:cover; }
+  .jade-header-info { flex:1; }
+  .jade-header-name { font-size:.88rem; font-weight:600; color:#E0FFF4; letter-spacing:.05em; }
+  .jade-header-status { font-size:.68rem; color:#2ECC8A; letter-spacing:.08em; }
+  .jade-status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#2ECC8A; margin-right:.3rem; animation:blink 2s infinite; }
+  .jade-close { background:none; border:none; color:rgba(224,255,244,.4); font-size:1.2rem; cursor:pointer; padding:.2rem; transition:color .2s; }
+  .jade-close:hover { color:#2ECC8A; }
+
+  /* CONTENIDO JADE */
+  .jade-body {
+    flex:1; overflow:hidden; position:relative;
+    display:flex; flex-direction:column;
+  }
+
+  /* PLACEHOLDER antes de configurar Chatbase */
+  .jade-placeholder {
+    flex:1; display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    padding:2rem 1.5rem; text-align:center; gap:1rem;
+  }
+  .jade-placeholder .jade-icon { font-size:3rem; }
+  .jade-placeholder h3 { font-family:'Playfair Display',serif; font-size:1.1rem; color:#E0FFF4; }
+  .jade-placeholder p { font-size:.78rem; line-height:1.65; color:rgba(224,255,244,.5); }
+  .jade-placeholder code {
+    display:block; background:rgba(46,204,138,.1);
+    border:1px solid rgba(46,204,138,.25);
+    color:#2ECC8A; font-size:.72rem; padding:.6rem 1rem;
+    border-radius:2px; word-break:break-all; text-align:left;
+    margin-top:.5rem;
+  }
+
+  /* IFRAME Chatbase */
+  .jade-frame {
+    width:100%; height:100%; border:none; display:none;
+  }
+
+  @media (max-width:400px) {
+    .jade-window { width:calc(100vw - 2rem); right:1rem; bottom:14rem; height:500px; }
+  }
+</style>
+
+<!-- BOTÓN JADE IA -->
+<div class="jade-btn" onclick="toggleJade()" title="Jade IA">
+  <span class="jade-tooltip">🧠 Jade IA</span>
+  <div class="jade-badge">IA</div>
+  <img src="avatarJade.png" alt="Jade IA" class="jade-btn-avatar"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+  <span style="display:none;font-size:1.2rem">🤖</span>
+</div>
+
+<!-- VENTANA JADE IA -->
+<div class="jade-window" id="jadeWindow">
+  <div class="jade-header">
+    <div class="jade-avatar-header">
+      <img src="avatarJade.png" alt="Jade IA" onerror="this.outerHTML='🧠'"/>
+    </div>
+    <div class="jade-header-info">
+      <div class="jade-header-name">Jade IA</div>
+      <div class="jade-header-status"><span class="jade-status-dot"></span>Asistente Inteligente</div>
+    </div>
+    <button class="jade-close" onclick="toggleJade()">✕</button>
+  </div>
+  <div class="jade-body">
+
+    <!-- ✅ PLACEHOLDER — Reemplazar por iframe cuando tengas el ID de Chatbase -->
+    <div class="jade-placeholder" id="jadePlaceholder">
+      <div class="jade-icon">🧠</div>
+      <h3>Jade IA estará lista pronto</h3>
+      <p>Esta IA responderá preguntas basadas en tu documento legal.<br>Para activarla sigue los pasos indicados abajo.</p>
+      <code>CHATBASE_ID_AQUÍ</code>
+    </div>
+
+    <!-- ✅ IFRAME CHATBASE — Descomenta y pega tu ID cuando lo tengas -->
+    <!--
+    <iframe class="jade-frame" id="jadeFrame"
+      src="https://www.chatbase.co/chatbot-iframe/TU_ID_AQUI"
+      style="display:block">
+    </iframe>
+    -->
+
+  </div>
+</div>
+
+<script>
+  let jadeOpen = false;
+  function toggleJade() {
+    jadeOpen = !jadeOpen;
+    document.getElementById('jadeWindow').classList.toggle('open', jadeOpen);
+  }
+</script>
+
+<!-- ████████ ANGELA IA CHAT WIDGET ████████ -->
+<style>
+  /* BOTÓN FLOTANTE IA */
+  .ia-btn {
+    position:fixed; bottom:6rem; right:2rem; z-index:998;
+    width:58px; height:58px; border-radius:50%;
+    background:linear-gradient(135deg, #5C1A2E, #3D0F1E);
+    border:2px solid #C9A84C;
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; box-shadow:0 4px 20px rgba(92,26,46,.5);
+    transition:transform .2s, box-shadow .2s;
+    animation:iaPulse 3s ease-in-out infinite;
+  }
+  .ia-btn:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(92,26,46,.7); animation:none; }
+  .ia-btn svg { display:none; }
+  .ia-btn-avatar { width:42px; height:42px; border-radius:50%; object-fit:cover; display:block; }
+  .ia-btn .ia-badge {
+    position:absolute; top:-4px; right:-4px;
+    width:18px; height:18px; border-radius:50%;
+    background:#C9A84C; color:#280A14;
+    font-size:.6rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ia-tooltip-btn {
+    position:absolute; right:70px; top:50%; transform:translateY(-50%);
+    background:rgba(40,10,20,.95); color:#FAF8F5;
+    font-family:'Jost',sans-serif; font-size:.72rem; white-space:nowrap;
+    padding:.45rem 1rem; border-radius:2px;
+    border:1px solid rgba(201,168,76,.3);
+    opacity:0; pointer-events:none; transition:opacity .25s;
+  }
+  .ia-btn:hover .ia-tooltip-btn { opacity:1; }
+  @keyframes iaPulse {
+    0%,100% { box-shadow:0 4px 20px rgba(92,26,46,.5); }
+    50% { box-shadow:0 4px 30px rgba(201,168,76,.4), 0 0 0 10px rgba(201,168,76,.08); }
+  }
+
+  /* VENTANA CHAT */
+  .ia-window {
+    position:fixed; bottom:11rem; right:2rem; z-index:997;
+    width:360px; max-height:560px;
+    background:#1A0810;
+    border:1px solid rgba(201,168,76,.3);
+    border-radius:4px;
+    display:flex; flex-direction:column;
+    box-shadow:0 20px 60px rgba(0,0,0,.6);
+    transform:scale(.92) translateY(20px);
+    opacity:0; pointer-events:none;
+    transition:all .3s cubic-bezier(.34,1.56,.64,1);
+    font-family:'Jost',sans-serif;
+  }
+  .ia-window.open {
+    transform:scale(1) translateY(0);
+    opacity:1; pointer-events:all;
+  }
+
+  /* HEADER */
+  .ia-header {
+    display:flex; align-items:center; gap:.8rem;
+    padding:1rem 1.2rem;
+    background:linear-gradient(135deg, #3D0F1E, #280A14);
+    border-bottom:1px solid rgba(201,168,76,.2);
+    border-radius:4px 4px 0 0;
+  }
+  .ia-avatar {
+    width:40px; height:40px; border-radius:50%;
+    background:linear-gradient(135deg,#5C1A2E,#C9A84C);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; flex-shrink:0;
+    border:1.5px solid rgba(201,168,76,.5);
+  }
+  .ia-header-info { flex:1; }
+  .ia-header-name { font-size:.88rem; font-weight:600; color:#FAF8F5; letter-spacing:.05em; }
+  .ia-header-status { font-size:.68rem; color:#C9A84C; letter-spacing:.08em; }
+  .ia-status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#4CAF50; margin-right:.3rem; animation:blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .ia-close {
+    background:none; border:none; color:rgba(250,248,245,.4);
+    font-size:1.2rem; cursor:pointer; padding:.2rem;
+    transition:color .2s;
+  }
+  .ia-close:hover { color:#C9A84C; }
+
+  /* MENSAJES */
+  .ia-messages {
+    flex:1; overflow-y:auto; padding:1rem;
+    display:flex; flex-direction:column; gap:.7rem;
+    scroll-behavior:smooth;
+  }
+  .ia-messages::-webkit-scrollbar { width:4px; }
+  .ia-messages::-webkit-scrollbar-track { background:transparent; }
+  .ia-messages::-webkit-scrollbar-thumb { background:rgba(201,168,76,.3); border-radius:2px; }
+
+  .ia-msg {
+    max-width:88%; padding:.7rem 1rem;
+    font-size:.82rem; line-height:1.55;
+    border-radius:2px; animation:msgIn .25s ease both;
+  }
+  @keyframes msgIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+
+  .ia-msg.bot {
+    background:rgba(92,26,46,.35);
+    border-left:2px solid rgba(201,168,76,.4);
+    color:rgba(250,248,245,.9); align-self:flex-start;
+  }
+  .ia-msg.user {
+    background:rgba(201,168,76,.15);
+    border:1px solid rgba(201,168,76,.25);
+    color:#E2C87A; align-self:flex-end; text-align:right;
+  }
+  .ia-msg.system {
+    background:rgba(201,168,76,.08);
+    border:1px dashed rgba(201,168,76,.2);
+    color:rgba(201,168,76,.7);
+    font-size:.72rem; text-align:center;
+    align-self:center; max-width:100%;
+  }
+
+  /* OPCIONES */
+  .ia-options { display:flex; flex-direction:column; gap:.4rem; margin-top:.3rem; }
+  .ia-opt {
+    background:rgba(92,26,46,.2);
+    border:1px solid rgba(201,168,76,.2);
+    color:rgba(250,248,245,.8);
+    padding:.55rem .9rem; font-size:.78rem;
+    font-family:'Jost',sans-serif;
+    text-align:left; cursor:pointer; border-radius:2px;
+    transition:background .2s, border-color .2s, color .2s;
+  }
+  .ia-opt:hover { background:rgba(201,168,76,.15); border-color:rgba(201,168,76,.5); color:#E2C87A; }
+
+  /* TYPING */
+  .ia-typing { display:flex; gap:4px; padding:.7rem 1rem; align-self:flex-start; }
+  .ia-typing span { width:7px; height:7px; border-radius:50%; background:rgba(201,168,76,.5); animation:typing .9s infinite; }
+  .ia-typing span:nth-child(2) { animation-delay:.2s; }
+  .ia-typing span:nth-child(3) { animation-delay:.4s; }
+  @keyframes typing { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+
+  /* INPUT */
+  .ia-input-area {
+    display:flex; gap:.5rem;
+    padding:.8rem 1rem;
+    border-top:1px solid rgba(201,168,76,.15);
+    background:#140608;
+  }
+  .ia-input {
+    flex:1; background:rgba(255,255,255,.05);
+    border:1px solid rgba(201,168,76,.2);
+    color:#FAF8F5; font-family:'Jost',sans-serif; font-size:.82rem;
+    padding:.55rem .8rem; outline:none; border-radius:2px;
+    transition:border-color .2s;
+  }
+  .ia-input:focus { border-color:rgba(201,168,76,.5); }
+  .ia-input::placeholder { color:rgba(250,248,245,.25); }
+  .ia-send {
+    background:rgba(201,168,76,.2); border:1px solid rgba(201,168,76,.3);
+    color:#C9A84C; width:36px; height:36px;
+    border-radius:2px; cursor:pointer; font-size:1rem;
+    transition:background .2s; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ia-send:hover { background:rgba(201,168,76,.35); }
+
+  /* WA BTN dentro chat */
+  .ia-wa-btn {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:#25D366; color:white;
+    padding:.6rem 1.2rem; border-radius:2px; border:none;
+    font-family:'Jost',sans-serif; font-size:.78rem; font-weight:500;
+    cursor:pointer; margin-top:.4rem; text-decoration:none;
+    transition:background .2s;
+  }
+  .ia-wa-btn:hover { background:#1fb356; }
+
+  @media (max-width:400px) {
+    .ia-window { width:calc(100vw - 2rem); right:1rem; bottom:10rem; }
+  }
+</style>
+
+<!-- BOTÓN IA -->
+<div class="ia-btn" onclick="toggleChat()" title="Mayorix IA">
+  <span class="ia-tooltip-btn">🤖 Mayorix IA</span>
+  <div class="ia-badge">IA</div>
+  <img src="avatarIA.png" alt="Mayorix IA" class="ia-btn-avatar" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+    <path d="M9 8h2v8H9zm4 0h2v8h-2zM12 2a10 10 0 100 20A10 10 0 0012 2zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
+  </svg>
+</div>
+
+<!-- VENTANA CHAT -->
+<div class="ia-window" id="iaWindow">
+  <div class="ia-header">
+    <div class="ia-avatar" style="padding:0;overflow:hidden">
+      <img src="avatarIA.png" alt="Mayorix IA" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block" onerror="this.outerHTML='⚖️'"/>
+    </div>
+    <div class="ia-header-info">
+      <div class="ia-header-name">Mayorix IA</div>
+      <div class="ia-header-status"><span class="ia-status-dot"></span>Asistente Virtual</div>
+    </div>
+    <button class="ia-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="ia-messages" id="iaMessages"></div>
+  <div class="ia-input-area">
+    <input class="ia-input" id="iaInput" placeholder="Escribe aquí o elige una opción..." onkeydown="if(event.key==='Enter')sendMsg()"/>
+    <button class="ia-send" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+//  ANGELA IA — Motor del chat
+// ══════════════════════════════════════
+let iaOpen = false;
+let userName = '';
+let awaitingName = true;
+let awaitingPhone = false;
+let capturedPhone = '';
+let step = 'inicio';
+
+const WA_LINK = 'https://wa.me/18094278287?text=Saludos%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20ustedes';
+
+// Horario: L-V 8-17, Sáb 8-12
+function estaDisponible() { return true; }
+function mensajeHorario() {
+  return '🟢 Estamos disponibles las <strong>24 horas</strong>, los 7 días de la semana. ¡Escríbenos cuando lo necesites!';
+}
+
+// Palabras de urgencia
+const urgentes = ['urgente','urgencia','preso','presa','arrestado','arrestada','emergencia','ahora','hoy','inmediato','ayuda ya','me detuvieron','nos detuvieron'];
+function esUrgente(txt) {
+  return urgentes.some(u => txt.toLowerCase().includes(u));
+}
+
+function toggleChat() {
+  iaOpen = !iaOpen;
+  document.getElementById('iaWindow').classList.toggle('open', iaOpen);
+  if (iaOpen && document.getElementById('iaMessages').children.length === 0) iniciarChat();
+}
+
+function iniciarChat() {
+  setTimeout(() => {
+    showTyping(1200, () => {
+      addBot('👋 ¡Hola! Soy <strong>Mayorix IA</strong>, asistente virtual del despacho <strong>Angela y Asociados</strong>.<br><br>Estoy aquí para orientarte en lo que necesites. 😊<br><br>¿Cuál es tu nombre?');
+    });
+  }, 400);
+}
+
+function sendMsg() {
+  const input = document.getElementById('iaInput');
+  const txt = input.value.trim();
+  if (!txt) return;
+  input.value = '';
+  addUser(txt);
+
+  // Urgencia
+  if (esUrgente(txt)) {
+    showTyping(900, () => {
+      addBot('🚨 <strong>Detecté que tu situación puede ser urgente.</strong><br><br>Te conecto de inmediato con la Lic. Angela Cruz para atenderte con prioridad.');
+      addBot(mensajeHorario());
+      addWA();
+    });
+    return;
+  }
+
+  // Reinicio
+  if (['menu','menú','inicio','volver','reiniciar'].includes(txt.toLowerCase())) {
+    step = 'menu';
+    showTyping(700, () => mostrarMenu());
+    return;
+  }
+
+  // Esperando nombre
+  if (awaitingName) {
+    userName = txt.split(' ')[0];
+    awaitingName = false;
+    step = 'menu';
+    showTyping(1000, () => {
+      addBot(`¡Qué gusto, <strong>${userName}</strong>! 😊 ${mensajeHorario()}<br><br>¿En qué puedo ayudarte hoy?`);
+      setTimeout(() => mostrarMenu(), 400);
+    });
+    return;
+  }
+
+  // Esperando teléfono
+  if (awaitingPhone) {
+    capturedPhone = txt;
+    awaitingPhone = false;
+    showTyping(1000, () => {
+      addBot(`✅ ¡Perfecto, <strong>${userName}</strong>! Hemos anotado tu número <strong>${capturedPhone}</strong>.<br>La Lic. Angela Cruz te contactará pronto. 👩‍⚖️<br><br>También puedes escribirle directamente ahora:`);
+      addWA();
+      setTimeout(() => addBot('¿Puedo ayudarte con algo más? Escribe <em>"menú"</em> para volver al inicio.'), 800);
+      // Enviar lead por WhatsApp a la Lic. Angela
+      const leadMsg = encodeURIComponent(`🔔 *Nuevo cliente desde la web*\n\n👤 *Nombre:* ${userName}\n📱 *Teléfono:* ${capturedPhone}\n\n_Contactar a la brevedad_`);
+      setTimeout(() => window.open(`https://wa.me/18094278287?text=${leadMsg}`, '_blank'), 1200);
+    });
+    return;
+  }
+
+  // Respuesta libre → sugerencia menú
+  showTyping(900, () => {
+    addBot(`Entiendo tu consulta, <strong>${userName}</strong>. Para orientarte mejor, elige una opción del menú o escribe <em>"menú"</em> para verlo:`);
+    setTimeout(() => mostrarMenu(), 400);
+  });
+}
+
+function mostrarMenu() {
+  const opts = [
+    {n:'1️⃣', t:'Consulta Legal General', s:'(tengo una duda y no sé por dónde empezar)', k:'general'},
+    {n:'2️⃣', t:'Familia',                 s:'(divorcio, custodia, pensión alimentaria, adopción)', k:'familia'},
+    {n:'3️⃣', t:'Penal',                   s:'(me acusaron, familiar detenido, fui víctima)', k:'penal'},
+    {n:'4️⃣', t:'Laboral',                 s:'(me despidieron, no me pagan, contrato injusto)', k:'laboral'},
+    {n:'5️⃣', t:'Civil',                   s:'(terreno, herencia, contratos, deudas)', k:'civil'},
+    {n:'6️⃣', t:'Licencia de Conducir',    s:'(suspendida, primera vez, renovación)', k:'licencia'},
+    {n:'7️⃣', t:'Comercial',               s:'(abrir negocio, contrato empresa, socios)', k:'comercial'},
+    {n:'8️⃣', t:'Agendar una cita',        s:'(hablar con la Lic. Angela Cruz)', k:'cita'},
+    {n:'9️⃣', t:'Horario y ubicación',     s:'(¿dónde están? ¿cuándo puedo ir?)', k:'horario'},
+  ];
+  const div = document.createElement('div');
+  div.className = 'ia-msg bot';
+  div.innerHTML = `<strong>Elige una opción:</strong>`;
+  const opts_div = document.createElement('div');
+  opts_div.className = 'ia-options';
+  opts.forEach(o => {
+    const btn = document.createElement('button');
+    btn.className = 'ia-opt';
+    btn.innerHTML = `${o.n} <strong>${o.t}</strong> <span style="opacity:.6;font-size:.72rem">${o.s}</span>`;
+    btn.onclick = () => elegirOpcion(o.k, `${o.n} ${o.t}`);
+    opts_div.appendChild(btn);
+  });
+  div.appendChild(opts_div);
+  document.getElementById('iaMessages').appendChild(div);
+  scrollBottom();
+}
+
+function elegirOpcion(key, label) {
+  addUser(label);
+  step = key;
+  showTyping(1100, () => responderTema(key));
+}
+
+function responderTema(key) {
+  const respuestas = {
+    general: {
+      txt: `📋 <strong>Consulta Legal General</strong><br><br>Entiendo que tienes una duda legal y no sabes por dónde empezar. ¡Estás en el lugar correcto!<br><br>La Lic. Angela Cruz tiene más de 10 años de experiencia en múltiples ramas del derecho dominicano y puede orientarte sin importar la complejidad de tu situación.<br><br>¿Sobre qué área crees que trata tu situación?`,
+      sub: ['familia','penal','laboral','civil','licencia','comercial']
+    },
+    familia: {
+      txt: `👨‍👩‍👧 <strong>Derecho de Familia</strong><br><br>¿Qué situación describes mejor?`,
+      sub: null,
+      opts: [
+        {t:'💍 Quiero divorciarme', r:'En RD el divorcio puede tramitarse en 30 a 90 días según el tipo. Necesitas acta de matrimonio, cédulas y otros documentos. La Lic. Angela te guía en todo el proceso.'},
+        {t:'👶 Pensión alimentaria', r:'Tienes derecho a solicitar pensión para tus hijos menores. El proceso se inicia ante el Tribunal de Niños, Niñas y Adolescentes. Es un proceso prioritario.'},
+        {t:'🏠 Custodia de hijos', r:'La custodia se determina en función del interés superior del niño. Se puede solicitar custodia exclusiva o compartida dependiendo del caso.'},
+        {t:'📝 Reconocimiento de hijo', r:'El reconocimiento voluntario o judicial de un hijo se puede tramitar ante el Registro Civil o ante los tribunales competentes.'},
+        {t:'🔙 Otro tema de familia', r:null}
+      ]
+    },
+    penal: {
+      txt: `🏛️ <strong>Derecho Penal</strong><br><br>¿Cuál es tu situación?`,
+      sub: null,
+      opts: [
+        {t:'⚠️ Me acusaron de algo', r:'Tienes derecho a un abogado desde el primer momento. No declares sin asesoría legal. La Lic. Angela puede representarte en todas las audiencias y defender tus derechos.'},
+        {t:'🔒 Tengo un familiar detenido', r:'Es urgente actuar rápido. Se puede solicitar audiencia de medida de coerción en las primeras 48 horas. Contáctanos de inmediato.'},
+        {t:'🙋 Fui víctima de un delito', r:'Como víctima tienes derechos reconocidos por ley. Puedes constituirte en parte del proceso penal y exigir reparación. Te ayudamos a presentar la querella.'},
+        {t:'📄 Tengo una orden de arresto', r:'No ignores una orden judicial. Lo mejor es presentarse acompañado de un abogado para manejar la situación de forma controlada y proteger tus derechos.'},
+      ]
+    },
+    laboral: {
+      txt: `💼 <strong>Derecho Laboral</strong><br><br>¿Cuál es tu situación?`,
+      sub: null,
+      opts: [
+        {t:'❌ Me despidieron injustamente', r:'Si fuiste despedido sin justa causa, la ley te ampara. Tienes derecho a preaviso, cesantía, vacaciones y proporcional de salario navideño. El plazo para reclamar es de 3 meses.'},
+        {t:'💰 No me pagan lo que me deben', r:'Puedes reclamar salarios atrasados, horas extras, bonificaciones y otros beneficios ante el Ministerio de Trabajo o los tribunales laborales.'},
+        {t:'📄 Tengo un contrato injusto', r:'Antes de firmar cualquier contrato, es fundamental revisarlo con un abogado. Hay cláusulas que pueden perjudicarte y que se pueden negociar.'},
+        {t:'🏢 Conflicto con mi empleador', r:'Los conflictos laborales se pueden resolver por conciliación en el Ministerio de Trabajo o mediante demanda ante los tribunales. Te acompañamos en todo el proceso.'},
+      ]
+    },
+    civil: {
+      txt: `⚖️ <strong>Derecho Civil</strong><br><br>¿Cuál es tu situación?`,
+      sub: null,
+      opts: [
+        {t:'🏡 Problema con un terreno o propiedad', r:'Los conflictos de tierras en RD se resuelven ante el Tribunal Superior de Tierras. Es importante tener el certificado de título y los documentos de la propiedad.'},
+        {t:'📜 Asunto de herencia o sucesión', r:'Para tramitar una herencia necesitas el acta de defunción, testamento si existe, y documentos de los bienes. El proceso puede ser notarial o judicial.'},
+        {t:'📋 Tengo un problema con un contrato', r:'Si la otra parte incumplió un contrato, puedes demandar daños y perjuicios. Si aún no has firmado, es crucial revisarlo antes para evitar problemas.'},
+        {t:'💳 Tengo problemas con una deuda', r:'Tienes derechos frente a los acreedores. No se puede embargar tu salario completo ni ciertos bienes esenciales. Podemos ayudarte a negociar o impugnar cobros abusivos.'},
+      ]
+    },
+    licencia: {
+      txt: `🚗 <strong>Licencia de Conducir</strong><br><br>¿Cuál es tu caso?`,
+      sub: null,
+      opts: [
+        {t:'🆕 Primera vez — quiero sacar mi licencia', r:'Para sacar tu primera licencia en RD necesitas: cédula, examen médico, curso de educación vial, y aprobar el examen teórico y práctico en el INTRANT. Te guiamos en todo el proceso.'},
+        {t:'🔄 Quiero renovar mi licencia', r:'La renovación se hace en el INTRANT con cédula vigente y pago de aranceles. Si está vencida hace más de un año puede requerir trámites adicionales.'},
+        {t:'❌ Me suspendieron la licencia', r:'La suspensión puede ser por acumulación de puntos, infracciones graves o sentencias judiciales. Podemos impugnar suspensiones injustificadas o tramitar la rehabilitación.'},
+        {t:'🏍️ Licencia de motocicleta u otro vehículo', r:'Existen diferentes categorías de licencia según el tipo de vehículo. Cada categoría tiene sus propios requisitos en el INTRANT.'},
+      ]
+    },
+    comercial: {
+      txt: `🏢 <strong>Derecho Comercial</strong><br><br>¿Cuál es tu necesidad?`,
+      sub: null,
+      opts: [
+        {t:'🏪 Quiero abrir un negocio o empresa', r:'Para constituir una empresa en RD necesitas elegir el tipo societario (SRL, SA, etc.), registrarla en la Cámara de Comercio, obtener RNC en la DGII, y cumplir otros requisitos según el sector.'},
+        {t:'🤝 Tengo un problema con un socio', r:'Los conflictos societarios pueden resolverse mediante negociación, mediación o demanda judicial. Es importante revisar el contrato social y los estatutos de la empresa.'},
+        {t:'📑 Necesito revisar un contrato comercial', r:'Los contratos comerciales deben revisarse antes de firmar. Identificamos cláusulas abusivas, riesgos legales y te asesoramos en la negociación de los términos.'},
+        {t:'💼 Asesoría legal para mi empresa', r:'Ofrecemos servicios de asesoría legal permanente para empresas: contratos, compliance, resolución de conflictos, y representación ante organismos del Estado.'},
+      ]
+    },
+    cita: {
+      txt: `📅 <strong>Agendar una cita</strong><br><br>${mensajeHorario()}<br><br>Para agendar tu cita con la Lic. Angela Cruz tienes dos opciones:`,
+      directWA: true
+    },
+    horario: {
+      txt: `🕐 <strong>Horario y Ubicación</strong><br><br>📍 <strong>Ubicación:</strong> La Vega, República Dominicana<br><br>🟢 <strong>Disponibilidad:</strong> 24 horas al día, 7 días a la semana<br><br>📞 <strong>Teléfono:</strong> (809) 427-8287<br>📧 <strong>Correo:</strong> contacto@angelayasociados.com<br><br>¡Escríbenos cuando lo necesites, estamos siempre disponibles!`,
+      directWA: true
+    }
+  };
+
+  const r = respuestas[key];
+  if (!r) { addBot('Escribe <em>"menú"</em> para ver todas las opciones.'); return; }
+
+  addBot(r.txt);
+
+  if (r.directWA) {
+    setTimeout(() => {
+      addBot('¿Deseas contactar ahora a la Lic. Angela Cruz?');
+      addWA();
+      setTimeout(() => addBot('¿Puedo ayudarte con algo más? Escribe <em>"menú"</em> para volver.'), 600);
+    }, 600);
+    return;
+  }
+
+  if (r.opts) {
+    setTimeout(() => {
+      const div = document.createElement('div');
+      div.className = 'ia-msg bot';
+      const od = document.createElement('div');
+      od.className = 'ia-options';
+      r.opts.forEach(o => {
+        const btn = document.createElement('button');
+        btn.className = 'ia-opt';
+        btn.textContent = o.t;
+        btn.onclick = () => {
+          addUser(o.t);
+          showTyping(900, () => {
+            const resp = o.r || '¡Claro! Te conectamos con la Lic. Angela Cruz para orientarte mejor.';
+            addBot(`ℹ️ ${resp}`);
+            setTimeout(() => {
+              addBot(`¿Te gustaría hablar directamente con la Lic. Angela Cruz, <strong>${userName}</strong>?`);
+              addWA();
+              setTimeout(() => ofrecerCaptura(), 700);
+            }, 600);
+          });
+        };
+        od.appendChild(btn);
+      });
+      div.appendChild(od);
+      document.getElementById('iaMessages').appendChild(div);
+      scrollBottom();
+    }, 500);
+  } else if (r.sub) {
+    setTimeout(() => mostrarMenu(), 600);
+  }
+}
+
+function ofrecerCaptura() {
+  const div = document.createElement('div');
+  div.className = 'ia-msg bot';
+  div.innerHTML = `¿Prefieres que la Lic. Angela te <strong>llame a ti</strong>? Déjame tu número y nos comunicamos contigo.`;
+  const od = document.createElement('div');
+  od.className = 'ia-options';
+  const si = document.createElement('button');
+  si.className = 'ia-opt';
+  si.textContent = '📱 Sí, dejar mi número';
+  si.onclick = () => {
+    addUser('Sí, dejar mi número');
+    awaitingPhone = true;
+    showTyping(700, () => addBot(`¿Cuál es tu número de teléfono, <strong>${userName}</strong>?`));
+  };
+  const no = document.createElement('button');
+  no.className = 'ia-opt';
+  no.textContent = '🔙 Volver al menú';
+  no.onclick = () => { addUser('Volver al menú'); showTyping(600, () => mostrarMenu()); };
+  od.appendChild(si);
+  od.appendChild(no);
+  div.appendChild(od);
+  document.getElementById('iaMessages').appendChild(div);
+  scrollBottom();
+}
+
+function addWA() {
+  const div = document.createElement('div');
+  div.className = 'ia-msg bot';
+  const a = document.createElement('a');
+  a.className = 'ia-wa-btn';
+  a.href = WA_LINK;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.innerHTML = '💬 Escribir por WhatsApp';
+  div.appendChild(a);
+  document.getElementById('iaMessages').appendChild(div);
+  scrollBottom();
+}
+
+function addBot(html) {
+  const div = document.createElement('div');
+  div.className = 'ia-msg bot';
+  div.innerHTML = html;
+  document.getElementById('iaMessages').appendChild(div);
+  scrollBottom();
+}
+
+function addUser(txt) {
+  const div = document.createElement('div');
+  div.className = 'ia-msg user';
+  div.textContent = txt;
+  document.getElementById('iaMessages').appendChild(div);
+  scrollBottom();
+}
+
+function showTyping(delay, cb) {
+  const t = document.createElement('div');
+  t.className = 'ia-typing';
+  t.id = 'iaTyping';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  document.getElementById('iaMessages').appendChild(t);
+  scrollBottom();
+  setTimeout(() => { t.remove(); cb(); }, delay);
+}
+
+function scrollBottom() {
+  const m = document.getElementById('iaMessages');
+  m.scrollTop = m.scrollHeight;
+}
+</script>
+</body>
+</html>
