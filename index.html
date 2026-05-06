@@ -365,8 +365,22 @@
     <div class="contacto-info">
       <div class="contacto-item"><div class="c-icon">📞</div><div class="c-text"><strong>Teléfono</strong>(809) 427-8287</div></div>
       <div class="contacto-item"><div class="c-icon">📧</div><div class="c-text"><strong>Correo</strong>contacto@angelayasociados.com</div></div>
-      <div class="contacto-item"><div class="c-icon">📍</div><div class="c-text"><strong>Ubicación</strong>La Vega, República Dominicana</div></div>
-      <div class="contacto-item"><div class="c-icon">🕐</div><div class="c-text"><strong>Disponibilidad</strong>24 horas · 7 días a la semana</div></div>
+      <div class="contacto-item">
+        <div class="c-icon">📍</div>
+        <div class="c-text">
+          <strong>Ubicación</strong>
+          Calle Principal de Soto, Pijín Távarez, frente al Colmado de Elías Gómez, al lado del Salón de Angela Salón. La Vega, República Dominicana.
+          <br><a href="https://maps.app.goo.gl/o95ENWBE3NLJY4Kv8" target="_blank" rel="noopener" style="color:var(--gold);font-size:.75rem;letter-spacing:.06em;">📌 Ver en Google Maps</a>
+        </div>
+      </div>
+      <div class="contacto-item">
+        <div class="c-icon">🕐</div>
+        <div class="c-text">
+          <strong>Horario de Oficina</strong>
+          Lun–Vie: 8:00 AM – 6:00 PM &nbsp;|&nbsp; Sáb: 8:00 AM – 12:00 PM<br>
+          <span style="color:var(--gold);font-size:.78rem;">📅 Citas disponibles 24/7 — nos adaptamos a tu horario</span>
+        </div>
+      </div>
     </div>
   </div>
   <div class="reveal">
@@ -482,166 +496,6 @@
       btn.disabled = false;
       btn.style.opacity = '1';
     }
-  }
-</script>
-
-<!-- ████████ JADE IA — CHATBASE WIDGET ████████ -->
-<style>
-  /* BOTÓN JADE IA */
-  .jade-btn {
-    position:fixed; bottom:10rem; right:2rem; z-index:998;
-    width:58px; height:58px; border-radius:50%;
-    background:linear-gradient(135deg, #0D3B2E, #0A5C45);
-    border:2px solid #2ECC8A;
-    display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
-    box-shadow:0 4px 20px rgba(46,204,138,.35);
-    transition:transform .2s, box-shadow .2s;
-    animation:jadePulse 3s ease-in-out infinite;
-  }
-  .jade-btn:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(46,204,138,.6); animation:none; }
-  .jade-btn-avatar { width:42px; height:42px; border-radius:50%; object-fit:cover; display:block; }
-  .jade-badge {
-    position:absolute; top:-4px; right:-4px;
-    width:18px; height:18px; border-radius:50%;
-    background:#2ECC8A; color:#0D3B2E;
-    font-size:.58rem; font-weight:700;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .jade-tooltip {
-    position:absolute; right:70px; top:50%; transform:translateY(-50%);
-    background:rgba(13,59,46,.95); color:#E0FFF4;
-    font-family:'Jost',sans-serif; font-size:.72rem; white-space:nowrap;
-    padding:.45rem 1rem; border-radius:2px;
-    border:1px solid rgba(46,204,138,.3);
-    opacity:0; pointer-events:none; transition:opacity .25s;
-  }
-  .jade-btn:hover .jade-tooltip { opacity:1; }
-  @keyframes jadePulse {
-    0%,100% { box-shadow:0 4px 20px rgba(46,204,138,.35); }
-    50%      { box-shadow:0 4px 30px rgba(46,204,138,.6), 0 0 0 10px rgba(46,204,138,.08); }
-  }
-
-  /* VENTANA JADE */
-  .jade-window {
-    position:fixed; bottom:15rem; right:2rem; z-index:997;
-    width:380px; height:560px;
-    background:#0A1F18;
-    border:1px solid rgba(46,204,138,.3);
-    border-radius:4px;
-    display:flex; flex-direction:column;
-    box-shadow:0 20px 60px rgba(0,0,0,.6);
-    transform:scale(.92) translateY(20px);
-    opacity:0; pointer-events:none;
-    transition:all .3s cubic-bezier(.34,1.56,.64,1);
-    font-family:'Jost',sans-serif;
-    overflow:hidden;
-  }
-  .jade-window.open { transform:scale(1) translateY(0); opacity:1; pointer-events:all; }
-
-  /* HEADER JADE */
-  .jade-header {
-    display:flex; align-items:center; gap:.8rem;
-    padding:1rem 1.2rem; flex-shrink:0;
-    background:linear-gradient(135deg, #0D3B2E, #072518);
-    border-bottom:1px solid rgba(46,204,138,.2);
-  }
-  .jade-avatar-header {
-    width:40px; height:40px; border-radius:50%;
-    background:linear-gradient(135deg,#0A5C45,#2ECC8A);
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.1rem; flex-shrink:0;
-    border:1.5px solid rgba(46,204,138,.5);
-    overflow:hidden;
-  }
-  .jade-avatar-header img { width:40px; height:40px; border-radius:50%; object-fit:cover; }
-  .jade-header-info { flex:1; }
-  .jade-header-name { font-size:.88rem; font-weight:600; color:#E0FFF4; letter-spacing:.05em; }
-  .jade-header-status { font-size:.68rem; color:#2ECC8A; letter-spacing:.08em; }
-  .jade-status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#2ECC8A; margin-right:.3rem; animation:blink 2s infinite; }
-  .jade-close { background:none; border:none; color:rgba(224,255,244,.4); font-size:1.2rem; cursor:pointer; padding:.2rem; transition:color .2s; }
-  .jade-close:hover { color:#2ECC8A; }
-
-  /* CONTENIDO JADE */
-  .jade-body {
-    flex:1; overflow:hidden; position:relative;
-    display:flex; flex-direction:column;
-  }
-
-  /* PLACEHOLDER antes de configurar Chatbase */
-  .jade-placeholder {
-    flex:1; display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    padding:2rem 1.5rem; text-align:center; gap:1rem;
-  }
-  .jade-placeholder .jade-icon { font-size:3rem; }
-  .jade-placeholder h3 { font-family:'Playfair Display',serif; font-size:1.1rem; color:#E0FFF4; }
-  .jade-placeholder p { font-size:.78rem; line-height:1.65; color:rgba(224,255,244,.5); }
-  .jade-placeholder code {
-    display:block; background:rgba(46,204,138,.1);
-    border:1px solid rgba(46,204,138,.25);
-    color:#2ECC8A; font-size:.72rem; padding:.6rem 1rem;
-    border-radius:2px; word-break:break-all; text-align:left;
-    margin-top:.5rem;
-  }
-
-  /* IFRAME Chatbase */
-  .jade-frame {
-    width:100%; height:100%; border:none; display:none;
-  }
-
-  @media (max-width:400px) {
-    .jade-window { width:calc(100vw - 2rem); right:1rem; bottom:14rem; height:500px; }
-  }
-</style>
-
-<!-- BOTÓN JADE IA -->
-<div class="jade-btn" onclick="toggleJade()" title="Jade IA">
-  <span class="jade-tooltip">🧠 Jade IA</span>
-  <div class="jade-badge">IA</div>
-  <img src="avatarJade.png" alt="Jade IA" class="jade-btn-avatar"
-       onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-  <span style="display:none;font-size:1.2rem">🤖</span>
-</div>
-
-<!-- VENTANA JADE IA -->
-<div class="jade-window" id="jadeWindow">
-  <div class="jade-header">
-    <div class="jade-avatar-header">
-      <img src="avatarJade.png" alt="Jade IA" onerror="this.outerHTML='🧠'"/>
-    </div>
-    <div class="jade-header-info">
-      <div class="jade-header-name">Jade IA</div>
-      <div class="jade-header-status"><span class="jade-status-dot"></span>Asistente Inteligente</div>
-    </div>
-    <button class="jade-close" onclick="toggleJade()">✕</button>
-  </div>
-  <div class="jade-body">
-
-    <!-- ✅ PLACEHOLDER — Reemplazar por iframe cuando tengas el ID de Chatbase -->
-    <div class="jade-placeholder" id="jadePlaceholder">
-      <div class="jade-icon">🧠</div>
-      <h3>Jade IA estará lista pronto</h3>
-      <p>Esta IA responderá preguntas basadas en tu documento legal.<br>Para activarla sigue los pasos indicados abajo.</p>
-      <code>CHATBASE_ID_AQUÍ</code>
-    </div>
-
-    <!-- ✅ IFRAME CHATBASE — Descomenta y pega tu ID cuando lo tengas -->
-    <!--
-    <iframe class="jade-frame" id="jadeFrame"
-      src="https://www.chatbase.co/chatbot-iframe/TU_ID_AQUI"
-      style="display:block">
-    </iframe>
-    -->
-
-  </div>
-</div>
-
-<script>
-  let jadeOpen = false;
-  function toggleJade() {
-    jadeOpen = !jadeOpen;
-    document.getElementById('jadeWindow').classList.toggle('open', jadeOpen);
   }
 </script>
 
@@ -867,10 +721,10 @@ let step = 'inicio';
 
 const WA_LINK = 'https://wa.me/18094278287?text=Saludos%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20con%20ustedes';
 
-// Horario: L-V 8-17, Sáb 8-12
+// Horario: L-V 8-18, Sáb 8-12, citas 24/7
 function estaDisponible() { return true; }
 function mensajeHorario() {
-  return '🟢 Estamos disponibles las <strong>24 horas</strong>, los 7 días de la semana. ¡Escríbenos cuando lo necesites!';
+  return '🕐 <strong>Horario de oficina:</strong> Lun–Vie 8:00 AM – 6:00 PM | Sáb 8:00 AM – 12:00 PM<br>📅 <strong>Citas:</strong> disponibles las 24 horas — ¡nos adaptamos a tu horario!';
 }
 
 // Palabras de urgencia
@@ -1054,11 +908,11 @@ function responderTema(key) {
       ]
     },
     cita: {
-      txt: `📅 <strong>Agendar una cita</strong><br><br>${mensajeHorario()}<br><br>Para agendar tu cita con la Lic. Angela Cruz tienes dos opciones:`,
+      txt: `📅 <strong>Agendar una cita</strong><br><br>Estamos disponibles las <strong>24 horas</strong> para agendar — nos adaptamos al horario que mejor te convenga.<br><br>Para agendar tu cita con la Lic. Angela Cruz tienes dos opciones:`,
       directWA: true
     },
     horario: {
-      txt: `🕐 <strong>Horario y Ubicación</strong><br><br>📍 <strong>Ubicación:</strong> La Vega, República Dominicana<br><br>🟢 <strong>Disponibilidad:</strong> 24 horas al día, 7 días a la semana<br><br>📞 <strong>Teléfono:</strong> (809) 427-8287<br>📧 <strong>Correo:</strong> contacto@angelayasociados.com<br><br>¡Escríbenos cuando lo necesites, estamos siempre disponibles!`,
+      txt: `🕐 <strong>Horario y Ubicación</strong><br><br>📍 <strong>Dirección:</strong> Calle Principal de Soto, Pijín Távarez, frente al Colmado de Elías Gómez, al lado del Salón de Angela Salón. La Vega, República Dominicana.<br><a href="https://maps.app.goo.gl/o95ENWBE3NLJY4Kv8" target="_blank" style="color:#C9A84C;">📌 Ver en Google Maps</a><br><br>🟢 <strong>Horario de oficina:</strong><br>Lun–Vie: 8:00 AM – 6:00 PM<br>Sábado: 8:00 AM – 12:00 PM<br><br>📅 <strong>Citas:</strong> disponibles las 24 horas — ¡nos adaptamos a tu horario!<br><br>📞 <strong>Teléfono:</strong> (809) 427-8287<br>📧 <strong>Correo:</strong> contacto@angelayasociados.com`,
       directWA: true
     }
   };
